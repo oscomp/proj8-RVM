@@ -1,5 +1,5 @@
 # proj8-RVM
-系统级虚拟化技术已经广泛应用于云计算中的数据中心等领域，是操作系统的重要组成部分，但目前高校中对系统级虚拟化的OS教学还比较少。RVM (Rcore Virtual Machine) 是一个用 Rust 语言编写的轻量级 hypervisor (虚拟机管理器，也叫 Virtual Machine Monitor、VMM) 模块，可用于构建各类虚拟机应用程序，实现在一台计算机上同时运行多个操作系统，提供更好的隔离性；由于其轻量性也可用于 hypervisor 的教学。
+系统级虚拟化技术已经广泛应用于云计算中的数据中心等领域，是操作系统的重要组成部分，但目前高校中对系统级虚拟化的 OS 教学还比较少。RVM (Rcore Virtual Machine) 是一个用 Rust 语言编写的轻量级 hypervisor (虚拟机管理器，也叫 Virtual Machine Monitor、VMM) 模块，可用于构建各类虚拟机应用程序，实现在一台计算机上同时运行多个操作系统，提供更好的隔离性；由于其轻量性也可用于 hypervisor 的教学。
 
 当前项目实现源码：
 
@@ -28,10 +28,10 @@
 
 - 支持 Intel VT-x 硬件虚拟化
 - 用 Rust 语言实现
-- 支持以多种方式构建虚拟化应用，运行 Guest OS：
-    + Type-1：RVM 先启动，直接管理所有硬件，然后再启动其他 Guest OS
-    + Type-2：作为 Host OS ([rCore](https://github.com/rcore-os/rCore)/[zCore](https://github.com/rcore-os/zCore)/Linux) 的子模块，先启动 Host OS，然后以进程的方式运行其他 Guest OS
-    + Type-1.5：先启动 Linux，RVM 作为 Linux Kernel Module，加载后将 Linux 自动降权为 Guest 模式运行
+- 支持以多种方式构建虚拟化应用，运行其他 Guest OS：
+    + Type-1：RVM 先启动，直接管理所有硬件，然后再启动其他 Guest OS。类似于 [Xen](https://en.wikipedia.org/wiki/Xen)；
+    + Type-2：作为 Host OS 的子模块，先启动 Host OS，然后以进程的方式运行其他 Guest OS。类似于 [KVM](https://www.linux-kvm.org/page/Main_Page)；
+    + Type-1.5：先启动 Linux，RVM 被一个 Linux Kernel Module 加载，然后将 Linux 自动降权为 Guest 模式运行；
 
 ### 文档
 
