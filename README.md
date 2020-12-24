@@ -1,5 +1,9 @@
 # proj8-RVM
-系统级虚拟化技术已经广泛应用于云计算中的数据中心等领域，是操作系统的重要组成部分，但目前高校中对系统级虚拟化的OS教学还比较少。RVM (Rcore Virtual Machine) 是一个用 Rust 语言编写的轻量级 hypervisor (虚拟机管理器，也叫 Virtual Machine Monitor、VMM) 模块，可用于构建各类虚拟机应用程序，实现在一台计算机上同时运行多个操作系统；由于其轻量性也可用于 hypervisor 的教学。
+系统级虚拟化技术已经广泛应用于云计算中的数据中心等领域，是操作系统的重要组成部分，但目前高校中对系统级虚拟化的OS教学还比较少。RVM (Rcore Virtual Machine) 是一个用 Rust 语言编写的轻量级 hypervisor (虚拟机管理器，也叫 Virtual Machine Monitor、VMM) 模块，可用于构建各类虚拟机应用程序，实现在一台计算机上同时运行多个操作系统，提供更好的隔离性；由于其轻量性也可用于 hypervisor 的教学。
+
+当前项目实现源码：
+
+* https://github.com/rcore-os/RVM
 
 ### 所属赛道
 
@@ -22,9 +26,12 @@
 
 ### 特征
 
-- 支持X86的硬件虚拟化
-- 支持加载rCore kernel in Guest Mode
-- 以Linux Kernel Module的形式运行
+- 支持 Intel VT-x 硬件虚拟化
+- 用 Rust 语言实现
+- 支持以多种方式构建虚拟化应用，运行 Guest OS：
+    + Type-1：RVM 先启动，直接管理所有硬件，然后再启动其他 Guest OS
+    + Type-2：作为 Host OS ([rCore](https://github.com/rcore-os/rCore)/[zCore](https://github.com/rcore-os/zCore)/Linux) 的子模块，先启动 Host OS，然后以进程的方式运行其他 Guest OS
+    + Type-1.5：先启动 Linux，RVM 作为 Linux Kernel Module，加载后将 Linux 自动降权为 Guest 模式运行
 
 ### 文档
 
@@ -40,15 +47,22 @@
 
 在现有RVM的基础上，进一步完成如下目标：
 
-### 第一题：分阶段重新实现RVM
+### 第一题：分阶段重新实现 RVM
 
-- 与导师协商，形成一系列的小步骤，参考目前的代码，重新按小步骤实现一个简单的Hypervisor
-- 在每个步骤完成后，能够有测试用例，并尽量与OS课程中涉及的内容相关
+- 与导师协商，形成一系列的小步骤，参考目前的代码，重新按小步骤实现一个简单的 Hypervisor，Type-1/2/1.5 均可
+- 在每个步骤完成后，能够有测试用例，并尽量与 OS 课程中涉及的内容相关，适合作为教学实验
 - 撰写实验设计与分析文档
 
+### 第二题：扩展当前 RVM 的功能
 
-### 第二题：支持其他硬件
+- 在 Type-1/2 形式的 RVM 中，以设备直通或模拟的方式，支持运行复杂的 Guest OS (rCore/zCore/Linux)
+- 在 Type-1/2 形式的 RVM 中，支持多核，能同时运行多个 Guest OS
+- 在 Type-1.5 形式的 RVM 中，通过在 Guest Linux 中向 RVM 发送 Hypercall 的方式，运行其他 Guest OS
+- 使用 Rust 语言重写启动 Type-1.5 RVM 所需的 Linux 内核可加载模块
+- 更好的自动测试
 
-- 支持ARM的系统级硬件虚拟化
-- 支持RISC-V的系统级硬件虚拟化
+### 第三题：支持其他硬件
 
+- 支持 AMD SVM 的系统级硬件虚拟化
+- 支持 ARMv8 的系统级硬件虚拟化
+- 支持 RISC-V 的系统级硬件虚拟化
