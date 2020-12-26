@@ -4,6 +4,7 @@
 当前项目实现源码：
 
 * https://github.com/rcore-os/RVM
+* https://github.com/rcore-os/RVM1.5
 
 ### 所属赛道
 
@@ -55,7 +56,7 @@
 
 ### 第二题：扩展当前 RVM 的功能
 
-- 在 Type-1/2 形式的 RVM 中，以设备直通或模拟的方式，支持运行复杂的 Guest OS (rCore/zCore/Linux)
+- 在 Type-1/2 形式的 RVM 中，以设备直通或模拟的方式，支持运行复杂的 Guest OS ([rCore](https://github.com/rcore-os/aCore)/[zCore](https://github.com/rcore-os/zCore)/Linux)
 - 在 Type-1/2 形式的 RVM 中，支持多核，能同时运行多个 Guest OS
 - 在 Type-1.5 形式的 RVM 中，通过在 Guest Linux 中向 RVM 发送 Hypercall 的方式，运行其他 Guest OS
 - 使用 Rust 语言重写启动 Type-1.5 RVM 所需的 Linux 内核可加载模块
