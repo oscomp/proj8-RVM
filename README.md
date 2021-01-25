@@ -19,7 +19,7 @@
 
 贾越凯
 - github https://github.com/equation314
-- email jyk19@mails.tsinghua.edu.cn
+- email jyk19@mails.tsinghua.edu.cn  equation618@gmail.com 
 
 ### 难度
 
