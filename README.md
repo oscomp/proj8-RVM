@@ -8,18 +8,16 @@
 
 ### 所属赛道
 
-2022全国大学生操作系统比赛的“OS功能挑战”赛道
+2024全国大学生操作系统比赛的“OS功能挑战”赛道
 
 ### 参赛要求
-- 以小组为单位参赛，最多三人一个小组，且小组成员是来自同一所高校的本科生（2022年春季学期或之后本科毕业的大一~大四的学生）
+- 以小组为单位参赛，最多三人一个小组，且小组成员是来自同一所高校的本科生（2024年春季学期或之后本科毕业的大一~大四的学生）
 - 如学生参加了多个项目，参赛学生选择一个自己参加的项目参与评奖
-- 请遵循“2022全国大学生操作系统比赛”的章程和技术方案要求
+- 请遵循“2024全国大学生操作系统比赛”的章程和技术方案要求
 
 ### 项目导师
-
-贾越凯
-- github https://github.com/equation314
-- email jyk19@mails.tsinghua.edu.cn  equation618@gmail.com 
+- 陈渝 github id: chyyuu email：yuchenATtsinghua.edu.cn
+- 贾越凯 github https://github.com/equation314 email jyk19@mails.tsinghua.edu.cn  equation618@gmail.com 
 
 ### 难度
 
